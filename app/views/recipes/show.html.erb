@@ -14,11 +14,15 @@
       <th>Value</th>
       <th>Actions</th>
 		</tr>
-    <tr>
-      <td>Apple</td>
-      <td>20g</td>
-      <td>100$</td>
-      <td><%= button_to 'Remove', '#' %></td>
-		</tr>
+    <div>
+    <% @recipe_foods.each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+        <td>$<%= recipe_food.food.price %></td>
+        <td><%= button_to 'Remove', '#' %></td>
+      </tr>
+    <% end %>
+    </div>
 </table>
 </div>
