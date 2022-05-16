@@ -3,7 +3,7 @@
 <% @recipes.each do |recipe| %>
 <%= link_to recipe.name.capitalize, recipe_path(recipe.id) %>
 	<%= recipe.description%>
-	<%= button_to 'remove', '#' %>
+	<%= button_to 'remove', recipe_path(recipe.id), method: :delete %>
 	<br>
 <% end %>
 
