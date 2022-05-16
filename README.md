@@ -11,9 +11,9 @@
 
 ## To get a local copy run the following steps:
 
-- Copy this link [this link](https://github.com/VSeray/Blog.git)
+- Copy this link [this link](https://github.com/VSeray/Recipe-app.git)
 - Open your terminal or command line
-- Run "git clone Paste [this link](https://github.com/VSeray/Blog.git)"
+- Run "git clone Paste [this link](https://github.com/VSeray/Recipe-app.git)"
 - Open the folder with your code editor
 
 ## To run the tests
