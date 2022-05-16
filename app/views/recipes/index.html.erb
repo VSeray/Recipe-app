@@ -1,2 +1,9 @@
-<h1>recipe#index</h1>
+<h1>Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+<%= link_to recipe.name.capitalize, '#' %>
+	<%= recipe.description%>
+	<%= button_to 'remove', '#' %>
+	<br>
+<% end %>
 
