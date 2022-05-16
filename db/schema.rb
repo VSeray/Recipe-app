@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_131501) do
     t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id", null: false
-    t.index ["users_id"], name: "index_recipes_on_users_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,5 +60,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_131501) do
 
   add_foreign_key "foods", "users", column: "users_id"
   add_foreign_key "recipe_foods", "users", column: "users_id"
-  add_foreign_key "recipes", "users", column: "users_id"
+  add_foreign_key "recipes", "users"
 end
