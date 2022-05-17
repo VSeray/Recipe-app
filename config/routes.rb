@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'users#index'
-  get 'users/index'
   get 'users/sign_out'
-  resources :users, only: %i[index]
+  resources :users
 end
