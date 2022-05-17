@@ -1,5 +1,8 @@
 <h1>Recipes</h1>
 
+<%= link_to 'Add new recipe', new_recipe_path %>
+<br>
+
 <% @recipes.each do |recipe| %>
 <%= link_to recipe.name.capitalize, recipe_path(recipe.id) %>
 	<%= recipe.description%>
