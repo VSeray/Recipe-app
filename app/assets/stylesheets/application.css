@@ -14,6 +14,7 @@
  *= require_self
  */
 
+.btn,
 .heading {
   display: flex;
   justify-content: center;
@@ -62,4 +63,28 @@
 
 .recipe_info {
   margin-top: 30px;
+}
+
+.card.recipe {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100px;
+}
+
+.card.recipe > div {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.card.recipe > p {
+  width: 50%;
+}
+
+.recipe_tite {
+  margin-bottom: 5px;
+  text-decoration: none;
 }

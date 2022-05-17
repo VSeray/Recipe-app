@@ -1,12 +1,18 @@
-<h1>Recipes</h1>
-
-<%= link_to 'Add new recipe', new_recipe_path %>
+<h1 class="heading">Recipes</h1>
 <br>
-
+<div class="text-center">
+	<%= link_to 'Add new recipe', new_recipe_path, class:"btn btn-primary mb-3 col-sm-5" %>	
+</div>
+<br>
 <% @recipes.each do |recipe| %>
-<%= link_to recipe.name.capitalize, recipe_path(recipe.id) %>
-	<%= recipe.description%>
-	<%= button_to 'remove', recipe_path(recipe.id), method: :delete %>
-	<br>
+<div class="card mb-4 recipe">
+	 <div>
+		 <h5><%= link_to recipe.name.capitalize, recipe_path(recipe.id), class: "recipe_tite" %></h5>
+		 <%= button_to 'remove', recipe_path(recipe.id), method: :delete, class:"btn btn-primary form-control" %>
+	 </div>
+		<p>
+			<%= recipe.description %>
+		</p>
+</div>
 <% end %>
 
