@@ -9,12 +9,12 @@ class RecipesController < ApplicationController
   end
 
   def new
-  @recipe = Recipe.new
+    @recipe = Recipe.new
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-  
+
     if @recipe.save
       flash[:notice] = 'Recipe created successfully'
       redirect_to recipes_path
@@ -41,5 +41,4 @@ class RecipesController < ApplicationController
     p[:user_id] = current_user.id
     p
   end
-  
 end
