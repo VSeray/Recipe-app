@@ -1,0 +1,31 @@
+<h1 class='headline'>Add a new recipe</h1>
+
+<%= form_with model: @recipe, method: :post, url: recipes_path, scope: :post, local: true do |f| %>
+
+<div>
+<%= f.label :name %><br>
+<%= f.text_field :name %>
+</div>
+
+<div>
+<%= f.label :cooking_time %><br>
+<%= f.number_field :cooking_time, in: 0..20.0, step: 0.5 %><span> h </span>
+</div>
+
+<div>
+<%= f.label :preparation_time %><br>
+<%= f.number_field :preparation_time, in: 0..20.0, step: 0.5 %><span> h </span>
+</div>
+
+<div>
+<%= f.label :description %><br>
+<%= f.text_area :description %>
+</div>
+
+<div>
+	<%= f.check_box :public, {}, true, false %>
+	<%= f.label :public, "Public Recipe" %>
+</div>
+
+<%= f.submit "Create a new post" %>
+<% end %>
