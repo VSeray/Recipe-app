@@ -13,5 +13,4 @@ class User < ApplicationRecord
   def set_role
     update(role: 'user')
   end
-
 end
