@@ -5,4 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :recipes, foreign_key: 'user_id'
   has_many :foods, foreign_key: 'user_id'
+
+  validates :name, presence: true, length: { minimum: 3 }
+
+  # private
+
+  def set_role
+    update(role: 'user')
+  end
+
 end
