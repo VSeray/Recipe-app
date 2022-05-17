@@ -1,31 +1,43 @@
-<h1 class='headline'>Add a new recipe</h1>
+<h1 class='heading'>Add a new recipe</h1>
 
-<%= form_with model: @recipe, method: :post, url: recipes_path, scope: :post, local: true do |f| %>
+<%= form_with model: @recipe, method: :post, url: recipes_path, scope: :post, local: true, class:"input-form" do |f| %>
 
-<div>
-<%= f.label :name %><br>
-<%= f.text_field :name %>
+<div class="form-div">
+	<div class="mb-3 col-sm-8">
+	<%= f.label :name, class:"form-label" %><br>
+	<%= f.text_field :name, class:"form-control"%>
+	</div>
+	
+	<div class="mb-3 col-sm-8">
+	<%= f.label :cooking_time, class:"form-label" %><br>
+	<div class="input-group mb-3">
+		<%= f.number_field :cooking_time, in: 0..20.0, step: 0.5, class:"form-control"%>
+		<span class="input-group-text">hour</span>
+	</div>
+	</div>
+	
+	<div class="mb-3 col-sm-8">
+	<%= f.label :preparation_time, class:"form-label" %><br>
+	<div class="input-group mb-3">
+		<%= f.number_field :preparation_time, in: 0..20.0, step: 0.5, class:"form-control"%>
+		<span class="input-group-text">hour</span>
+	</div>
+	</div>
+	
+	<div class="mb-3 col-sm-8">
+	<%= f.label :description, class:"form-label" %><br>
+	<%= f.text_area :description, class:"form-control"%>
+	</div>
+	
+	<div class="mb-3 col-sm-8">
+		<div class="form-check">
+			<%= f.check_box :public, {}, checked_value = "1", unchecked_value = "0" %>
+			<%= f.label :public, "Public Recipe", class:"form-label" %>
+		</div>
+	</div>
+	
+	<div class="mb-3 col-sm-8">
+		<%= f.submit "Create a new recipe", class:"btn btn-primary form-control"%>
+	</div>
+	<% end %>
 </div>
-
-<div>
-<%= f.label :cooking_time %><br>
-<%= f.number_field :cooking_time, in: 0..20.0, step: 0.5 %><span> h </span>
-</div>
-
-<div>
-<%= f.label :preparation_time %><br>
-<%= f.number_field :preparation_time, in: 0..20.0, step: 0.5 %><span> h </span>
-</div>
-
-<div>
-<%= f.label :description %><br>
-<%= f.text_area :description %>
-</div>
-
-<div>
-	<%= f.check_box :public, {}, checked_value = "1", unchecked_value = "0" %>
-	<%= f.label :public, "Public Recipe" %>
-</div>
-
-<%= f.submit "Create a new recipe" %>
-<% end %>
