@@ -1,15 +1,5 @@
 class RecipeFoodsController < ApplicationController
 	
-	def index
-		@recipes = current_user.recipes
-		@foods = Food.all
-		@total_price = 0
-		@recipes.each do |recipe|
-			recipe.recipe_foods.each do |recipe_food|
-				 @total_price += (recipe_food.quantity * recipe_food.food.price)
-			end
-		end
-	end
 	
 	def new
 		@foods = Food.all
@@ -24,8 +14,7 @@ class RecipeFoodsController < ApplicationController
       flash[:notice] = 'Food added successfully'
       redirect_to recipe_path(setup_recipe_id)
     else
-      #flash[:alert] = 'Error: Could not Add fod to recipe'
-      flash[:alert] = alert.full_messages
+      flash[:alert] = 'Error: Could not Add fod to recipe'
       redirect_to new_recipe_recipe_food_path(setup_recipe_id)
     end
 	end
