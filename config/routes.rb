@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :recipe_foods
   end
   resources :foods, only: [:index, :new, :create, :destroy]
-  
+  get 'general_shopping_list/', to: 'shopping_list#index'
 end

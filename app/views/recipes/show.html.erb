@@ -16,7 +16,7 @@
       <p class="card-text">Cooking time: <%= @recipe.cooking_time %> h</p>
       <p class="card-text"><%= @recipe.description %></p>
       <%= link_to 'Add ingredient', new_food_path, class:"btn btn-primary" %>
-      <%= link_to 'Add food to the recipe', recipe_recipe_foods_path(@recipe.id), class:"btn btn-primary" %>
+      <%= link_to 'Add food to the recipe', new_recipe_recipe_food_path(@recipe.id), class:"btn btn-primary" %>
     </div>
   </div>
 </div>
