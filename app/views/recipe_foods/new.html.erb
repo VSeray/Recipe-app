@@ -1,0 +1,27 @@
+<h1>recipe food</h1>
+
+<div class="listDiv">
+  <table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+        <th >Food</th>
+        <th>Measurement_Unit</th>
+        <th>Unit Price</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @foods.each do |food|%>
+    <tr>
+      <td><%= food.name%></th>
+      <td><%= food.measurement_unit%></td>
+      <td>$<%= food.price%></td>
+      <td class="mb-3 col-sm-3">
+      <%=button_to "Add to recipe", food_path(food.id), method: :delete, class:"btn btn-primary form-control"%>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
