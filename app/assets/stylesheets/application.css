@@ -96,3 +96,9 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.link,
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+}
