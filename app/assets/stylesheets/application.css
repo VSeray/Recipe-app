@@ -88,3 +88,11 @@
   margin-bottom: 5px;
   text-decoration: none;
 }
+
+.shopping_list_stats {
+  display: flex;
+  margin: 40px auto;
+  width: 90vw;
+  justify-content: space-around;
+  align-items: center;
+}

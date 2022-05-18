@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    #p current_user.recipes.first.recipe_foods
     @recipe = Recipe.find(params[:id])
     @recipe_foods = RecipeFood.where(['recipe_id = :id', { id: params[:id].to_s }])
   end
