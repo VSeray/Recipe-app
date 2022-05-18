@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .heading {
+.heading {
   display: flex;
   justify-content: center;
   align-items: center;
