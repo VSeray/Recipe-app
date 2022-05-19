@@ -28,13 +28,12 @@
 	<%= f.label :description, class:"form-label" %><br>
 	<%= f.text_area :description, class:"form-control"%>
 	</div>
-	
-	<div class="mb-3 col-sm-8">
-		<div class="form-check">
-			<%= f.check_box :public, {}, checked_value = "1", unchecked_value = "0" %>
-			<%= f.label :public, "Public Recipe", class:"form-label" %>
-		</div>
 	</div>
+
+	<div class="form-check form-switch">
+    <%= f.check_box :public, class:"form-check-input", id:"flexSwitchCheckDefault" %>
+    <label class="form-check-label" for="flexSwitchCheckDefault">Public</label>
+  </div>
 	
 	<div class="mb-3 col-sm-8">
 		<%= f.submit "Create a new recipe", class:"btn btn-primary form-control"%>
