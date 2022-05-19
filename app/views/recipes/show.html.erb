@@ -18,8 +18,10 @@
       <p class="card-text">Preparation time: <%= @recipe.preparation_time %> h</p>
       <p class="card-text">Cooking time: <%= @recipe.cooking_time %> h</p>
       <p class="card-text"><%= @recipe.description %></p>
-      <%= link_to 'Add ingredient', new_food_path, class:"btn btn-primary" %>
-      <%= link_to 'Add food to the recipe', new_recipe_recipe_food_path(@recipe.id), class:"btn btn-primary" %>
+  <% if can? :destroy, @recipe %>
+        <%= link_to 'Add ingredient', new_food_path, class:"btn btn-primary" %>
+        <%= link_to 'Add food to the recipe', new_recipe_recipe_food_path(@recipe.id), class:"btn btn-primary" %>
+   <% end %>
     </div>
   </div>
 </div>
@@ -30,14 +32,18 @@
       <th>Food</th>
       <th>Quantity</th>
       <th>Value</th>
-      <th>Actions</th>
+      <% if can? :destroy, @recipe %>
+        <th>Actions</th>
+      <% end %>
     </tr>
       <% @recipe_foods.each do |recipe_food| %>
         <tr>
           <td><%= recipe_food.food.name %></td>
           <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
           <td>$<%= recipe_food.food.price %></td>
-          <td><%= button_to 'Remove', '#' , class:"btn btn-primary form-control"%></td>
+          <% if can? :destroy, @recipe %>
+            <td><%= button_to 'Remove', '#' , class:"btn btn-primary form-control"%></td>
+          <% end %>
         </tr>
       <% end %>
   </table>

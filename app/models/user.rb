@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def set_role
     update(role: 'user')
   end
+
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
 end
