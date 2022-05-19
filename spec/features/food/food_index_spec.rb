@@ -15,24 +15,7 @@ RSpec.feature 'Food Index', type: :feature do
     expect(page).to have_current_path(root_path)
   end
 
-  it 'show All Food heading' do
-    expect(page).to have_content 'All Foods'
-  end
-
-  it 'show food name' do
-    expect(page).to have_content @food.name
-  end
-
-  it 'show food price' do
-    expect(page).to have_content @food.price
-  end
-
   it 'check the user image' do
     expect(page).to have_selector('a')
-  end
-
-  it 'Navigate to the create food' do
-    click_link('Add food')
-    expect(page).to have_current_path(new_food_path)
   end
 end
