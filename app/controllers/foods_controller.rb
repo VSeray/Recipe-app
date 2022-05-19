@@ -20,10 +20,10 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    # authorize! :destroy, @food
     @food.destroy
     flash[:success] = 'Food is removed successfully'
     redirect_to foods_path
+    authorize! :destroy, @food
   end
 
   private

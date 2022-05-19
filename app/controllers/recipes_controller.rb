@@ -39,6 +39,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path
+    authorize! :destroy, @recipe
   end
 
   def public
