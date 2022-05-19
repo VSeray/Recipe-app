@@ -1,10 +1,12 @@
 class RecipesController < ApplicationController
+
+  before_action :authenticate_user!, except: [:public, :show]
+
   def index
     @recipes = Recipe.where(['user_id = :id', { id: current_user.id.to_s }])
   end
 
   def show
-    # p current_user.recipes.first.recipe_foods
     @recipe = Recipe.find(params[:id])
     @recipe_foods = RecipeFood.where(['recipe_id = :id', { id: params[:id].to_s }])
   end
