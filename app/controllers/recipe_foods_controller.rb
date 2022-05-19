@@ -1,7 +1,6 @@
 class RecipeFoodsController < ApplicationController
-
   before_action :authenticate_user!
-  
+
   def new
     @foods = Food.all
     @recipe_food = RecipeFood.new
