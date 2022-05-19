@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :foods, only: [:index, :new, :create, :destroy]
   get 'general_shopping_list/', to: 'shopping_list#index'
+  get 'public_recipes', to: 'recipes#public', as: 'public'
 end

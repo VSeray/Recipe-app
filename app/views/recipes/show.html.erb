@@ -2,14 +2,17 @@
   <div class="card-body">
     <h1 class="card-title text-center"><%= @recipe.name %></h1>
     <div class="switch">
-      <div class="form-check form-switch">
-        <% if @recipe.public %>
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked disabled>
+      <%= form_with url: recipe_path(@recipe), method: "post" do |form| %>
+        <div class="form-check form-switch">
+          <% if @recipe.public == false %>
+            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckDefault", onchange: "this.form.submit();"%>
+            <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Public</label>
           <% else %>
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" disabled>
-        <% end %>
-        <label class="" for="flexSwitchCheckDefault">Public</label>
-      </div>
+            <%= form.check_box :public, class:"form-check-input fs-4", id:"flexSwitchCheckChecked", checked: true, onchange: "this.form.submit();" %>
+            <label class="form-check-label fs-4" for="flexSwitchCheckChecked">Public</label>
+          <%end%>
+        </div>
+      <%end%>
     </div> 
     <div class="recipe_info">
       <p class="card-text">Preparation time: <%= @recipe.preparation_time %> h</p>
