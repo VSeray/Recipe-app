@@ -4,9 +4,11 @@ RSpec.describe 'Recipes', type: :request do
   include Devise::Test::IntegrationHelpers
 
   let(:user) { User.create(name: 'Cork', email: 'example@mail.com', password: 'password') }
-  let(:recipe) {Recipe.create(name: 'Recipe1', cooking_time: 1.5, preparation_time: 1, 
-                   description: 'description',
-                  public: true, created_at: Time.now, updated_at: Time.now, user_id: user.id)}
+  let(:recipe) do
+    Recipe.create(name: 'Recipe1', cooking_time: 1.5, preparation_time: 1,
+                  description: 'description',
+                  public: true, created_at: Time.now, updated_at: Time.now, user_id: user.id)
+  end
 
   describe 'Test Get recipes#index' do
     before(:each) do

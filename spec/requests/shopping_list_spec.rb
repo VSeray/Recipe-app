@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'ShoppingLists', type: :request do
   include Devise::Test::IntegrationHelpers
-  
+
   let(:user) { User.create(name: 'Cork', email: 'example@mail.com', password: 'password') }
 
   describe 'Test Get shopping_list#index' do

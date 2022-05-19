@@ -9,9 +9,10 @@ RSpec.describe 'Recipe app', type: :feature do
       fill_in 'email', with: 'user1@gmail.com'
       fill_in 'pwd', with: '123456'
       click_button 'Log in'
-      @recipe1 = Recipe.create!(id:1, name: 'Recipe1', cooking_time: 1.5, preparation_time: 1, description: 'description',
-                               public: true, created_at: Time.now, updated_at: Time.now, user_id: @user1.id)
-      @food = Food.create(id: 1, name: 'orange', price: 15, measurement_unit: 'kg', user_id: @user1.id, created_at: Time.now)
+      @recipe1 = Recipe.create!(id: 1, name: 'Recipe1', cooking_time: 1.5, preparation_time: 1, description: 'description',
+                                public: true, created_at: Time.now, updated_at: Time.now, user_id: @user1.id)
+      @food = Food.create(id: 1, name: 'orange', price: 15, measurement_unit: 'kg', user_id: @user1.id,
+                          created_at: Time.now)
       @recipe_food = RecipeFood.create(food_id: @food.id, recipe_id: @recipe1.id, quantity: 25, created_at: Time.now)
       visit new_recipe_recipe_food_path(@recipe1)
     end
@@ -35,6 +36,5 @@ RSpec.describe 'Recipe app', type: :feature do
       expect(page).to have_content(@food.measurement_unit)
       expect(page).to have_content(@food.price)
     end
-
   end
 end

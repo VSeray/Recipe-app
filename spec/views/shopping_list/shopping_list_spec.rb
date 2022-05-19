@@ -28,24 +28,24 @@ RSpec.describe 'Recipe app', type: :feature do
       expect(page).to have_content('Price')
     end
 
-		it 'Should see the food name' do
+    it 'Should see the food name' do
       expect(page).to have_content(@food.name)
     end
 
-		it 'Should see the Amount of food items to buy' do
+    it 'Should see the Amount of food items to buy' do
       expect(page).to have_content('Amount of food items to buy: 1')
     end
 
-		it 'Should see the Total of food needed' do
+    it 'Should see the Total of food needed' do
       expect(page).to have_content('Total of food needed: $375.0')
     end
 
-		it 'Should see the price column' do
-			price = @food.price * @recipe_food.quantity
+    it 'Should see the price column' do
+      price = @food.price * @recipe_food.quantity
       expect(page).to have_content("$#{price}")
     end
 
-		it 'Should see the quantity column' do
+    it 'Should see the quantity column' do
       expect(page).to have_content("#{@recipe_food.quantity} kg")
     end
   end
