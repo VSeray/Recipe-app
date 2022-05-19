@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Recipe app', type: :feature do
-  describe ' Recipe index page' do
+  describe ' Recipe show page' do
     before(:each) do
       @user1 = User.create!(name: 'User1', created_at: Time.now,
                             role: 'admin', email: 'user1@gmail.com', password: '123456')
@@ -44,7 +44,7 @@ RSpec.describe 'Recipe app', type: :feature do
       expect(page).to have_current_path new_recipe_recipe_food_path(@recipe1.id)
     end
 
-    it 'Should see recipr foods table' do
+    it 'Should see recipe foods table' do
       expect(page).to have_content('Food')
       expect(page).to have_content('Quantity')
       expect(page).to have_content('Value')
