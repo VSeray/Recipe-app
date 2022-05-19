@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   get 'users/sign_out'
   resources :users
-  resources :recipes, except: [:edit, :update] do
+  resources :recipes do
     resources :recipe_foods
   end
   resources :foods, only: [:index, :new, :create, :destroy]

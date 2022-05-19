@@ -43,6 +43,7 @@ class RecipesController < ApplicationController
 
   def public
     @recipes = Recipe.where(public: true)
+    @foods = Food.all
   end
 
   private

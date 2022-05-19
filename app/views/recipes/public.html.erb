@@ -1,0 +1,26 @@
+<h1 class= 'heading'> Public Recipes </h1>
+
+
+
+<% @recipes.each do |recipe| %>
+  <div class="card mb-4 recipe">
+	 <div>
+		 <h5><%= link_to recipe.name.capitalize, recipe_path(recipe.id), class: "recipe_tite" %></h5>
+     <p>By: <%= recipe.user.name %></p>
+	 </div>
+   <div>
+   <p>
+      Total food Items:
+			<%= recipe.recipe_foods.count(:id) %>
+		</p>
+    <p>
+      Total Price: $
+			<tbody>
+      <tr>
+      <%= recipe.recipe_foods.sum { |item| item.food.price * item.quantity} %>
+      </tr>
+		</p>
+   </div>
+
+</div>
+<% end %>
