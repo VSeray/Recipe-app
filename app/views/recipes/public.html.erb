@@ -2,7 +2,7 @@
 
 
 
-<% @recipes.each do |recipe| %>
+<% @recipes.includes([:user]).each do |recipe| %>
   <div class="card mb-4 recipe">
 	 <div>
 		 <h5><%= link_to recipe.name.capitalize, recipe_path(recipe.id), class: "recipe_tite" %></h5>
@@ -17,7 +17,7 @@
       Total Price: $
 			<tbody>
       <tr>
-      <%= recipe.recipe_foods.sum { |item| item.food.price * item.quantity} %>
+      <%= recipe.recipe_foods.includes([:food]).sum { |item| item.food.price * item.quantity} %>
       </tr>
 		</p>
    </div>

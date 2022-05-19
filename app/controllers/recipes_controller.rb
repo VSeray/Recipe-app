@@ -1,10 +1,11 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: %i[public show]
+
   def index
     @recipes = Recipe.where(['user_id = :id', { id: current_user.id.to_s }])
   end
 
   def show
-    # p current_user.recipes.first.recipe_foods
     @recipe = Recipe.find(params[:id])
     @recipe_foods = RecipeFood.where(['recipe_id = :id', { id: params[:id].to_s }])
   end
@@ -39,10 +40,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path
+    authorize! :destroy, @recipe
   end
 
   def public
-    @recipes = Recipe.where(public: true)
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
     @foods = Food.all
   end
 
