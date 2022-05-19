@@ -9,9 +9,11 @@ RSpec.describe 'Recipe app', type: :feature do
       fill_in 'email', with: 'user1@gmail.com'
       fill_in 'pwd', with: '123456'
       click_button 'Log in'
-      @recipe1 = Recipe.create(name: 'Recipe1', cooking_time: 1.5, preparation_time: 1, description: 'description', public: true,
+      @recipe1 = Recipe.create(name: 'Recipe1', cooking_time: 1.5, preparation_time: 1,
+                               description: 'description', public: true,
                                created_at: Time.now, updated_at: Time.now, user_id: @user1.id)
-      @recipe2 = Recipe.create(name: 'Recipe2', cooking_time: 2, preparation_time: 0.5, description: 'description', public: false,
+      @recipe2 = Recipe.create(name: 'Recipe2', cooking_time: 2, preparation_time: 0.5,
+                               description: 'description', public: false,
                                created_at: Time.now, updated_at: Time.now, user_id: @user1.id)
       visit recipes_path
     end
